@@ -14,7 +14,7 @@ FlappyCat - simple python game created with the pygame
     ```
 3. Install the required dependencies:
     ```bash
-    pip install -r requirements.txt
+    python3 -m pip install -r requirements.txt
     ```
 
 ## Game launch
