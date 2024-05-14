@@ -21,4 +21,4 @@ FlappyCat - simple python game created with the pygame
 
 To start the game:
 ```bash
-python main.py
+python3 main.py
