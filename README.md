@@ -6,7 +6,7 @@ FlappyCat - simple python game created with the pygame
 
 1. Clone repository:
     ```bash
-    git clone https://github.com/yourusername/FlappyCat.git
+    git clone https://github.com/kshr0x/FlappyCat.git
     ```
 2. Go to the project directory:
     ```bash
