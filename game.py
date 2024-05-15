@@ -4,6 +4,7 @@ from settings import SCREEN_WIDTH, SCREEN_HEIGHT, WHITE, BLACK
 from background import Background
 from bird import Bird
 from pipe import Pipe
+from scoremanager import ScoreManager
 
 class Game:
     def __init__(self, screen, resource_path):
@@ -21,18 +22,9 @@ class Game:
         pygame.mixer.music.play(-1)
         self.FPS = 60
         self.score = 0
-        self.high_score = self.load_high_score()
+        self.high_score_manager = ScoreManager()
+        self.high_score = self.high_score_manager.load_high_score()
         self.game_over = False
-
-    def load_high_score(self):
-        if os.path.exists('high_score.txt'):
-            with open('high_score.txt', 'r') as file:
-                return int(file.read())
-        return 0
-
-    def save_high_score(self):
-        with open('high_score.txt', 'w') as file:
-            file.write(str(self.high_score))
 
     def display_message(self, message, color):
         text = self.font.render(message, True, color)
@@ -82,7 +74,7 @@ class Game:
                     self.game_over = True
                     if self.score > self.high_score:
                         self.high_score = self.score
-                        self.save_high_score()
+                        self.high_score_manager.save_high_score(self.high_score)
 
                 self.screen.fill(WHITE)
                 self.background.draw(self.screen)
